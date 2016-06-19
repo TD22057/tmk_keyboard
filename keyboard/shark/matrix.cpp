@@ -1,5 +1,6 @@
 /*
 Copyright 2012 Jun Wako <wakojun@gmail.com>
+Copyright 2016 Ted Drain
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,9 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*
- * scan matrix
- */
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -48,6 +46,8 @@ static TeensyPin s_colPins[MATRIX_COLS] = {
    TPIN(D,3), TPIN(D,2), TPIN(D,1), TPIN(D,0), 
 };
 
+static TeensyPin s_led = TPIN(D,4);
+
 // Keyboard matrix state (0 = up, 1 = down)
 static matrix_row_t s_matrix[MATRIX_ROWS];
 
@@ -56,6 +56,7 @@ static matrix_row_t s_matrix[MATRIX_ROWS];
 static uint8_t s_debounce[MATRIX_ROWS][MATRIX_COLS];
 
 extern "C" {
+
 uint8_t matrix_rows(void)
 {
     return MATRIX_ROWS;
@@ -68,6 +69,7 @@ uint8_t matrix_cols(void)
 
 bool matrix_is_on(uint8_t row, uint8_t col)
 {
+    // NOTE: may need 1UL if MATRIX_COLS > 16
     return (s_matrix[row] & ((matrix_row_t)1<<col));
 }
 
@@ -78,10 +80,21 @@ matrix_row_t matrix_get_row(uint8_t row)
 
 void led_set(uint8_t led)
 {
+    if ( led & (1 << USB_LED_CAPS_LOCK) )
+    {
+        s_led.high();
+    }
+    else
+    {
+        s_led.low();
+    }
 }
 
 void matrix_init(void)
-{
+{ 
+    s_led.output();
+    s_led.low();
+
     // Initialize row and column pins.
     for ( uint8_t i = 0; i < MATRIX_ROWS; i++ )
     {

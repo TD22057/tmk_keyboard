@@ -157,7 +157,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           PSCR, TAB,  Q,    W,    E,    R,    T, \
           ESC,  LCTL, A,    S,    D,    F,    G,    BSLS, \
           PGUP, LSFT, Z,    X,    C,    V,    B,    DEL, \
-          PGDN, HOME, END,  TAB,  LALT, LFN,  SPC,  BSPC,   \
+          PGDN, HOME, END,  LGUI, LALT, LFN,  SPC,  BSPC,   \
                 /* Right hand */
                       F7,   F8,   F9,   F10,  F11,  F12, \
                       6,    7,    8,    9,    0,    VOLD, VOLU, \
@@ -175,7 +175,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           SLCK, TRNS, CBEG, CBWD, UP,   CFWD, PGUP, \
           NO,   NO,   HOME, LEFT, DOWN, RGHT, END,  AND, \
           NO,   CAPS, CEND, DBWD, DLIN, DFWD, PGDN, INS, \
-          NO,   NO,   NO,   LGUI, NO,   TRNS, TRNS, TRNS, \
+          NO,   NO,   NO,   NO,   NO,   TRNS, TRNS, TRNS, \
                 /* Right hand */
                       CALC, NO,   NO,   NO,   NO,   NO, \
                       F6,   F7,   F8,   F9,   F10,  MPLY, MSTP, \
@@ -193,7 +193,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           BRK,  NO,   CBEG, CBWD, UP,   CFWD, PGUP, \
           NO,   NO,   HOME, LEFT, DOWN, RGHT, END,  AND, \
           NO,   CAPS, CEND, DBWD, DLIN, DFWD, PGDN, INS, \
-          NO,   NO,   NO,   LGUI, NO,   TRNS, TRNS, TRNS, \
+          NO,   NO,   NO,   NO,   NO,   TRNS, TRNS, TRNS, \
                 /* Right hand */
                       CALC, NO,   NO,   NO,   NO,   NO, \
                       F6,   F7,   F8,   F9,   F10,  MPLY, MSTP, \

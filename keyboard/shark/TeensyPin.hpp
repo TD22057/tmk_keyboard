@@ -1,5 +1,5 @@
 /*
-Copyright 2013 TD22057
+Copyright 2016 Ted Drain
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include <stdint.h>
 #include <avr/io.h>
+
+// WARNING: if MATRIX_COLS > 16, change 1 << bit to 1UL << bit.
 
 // Set the bit number 'bit' in the variable 'field' to 1.
 #define BIT_SET( field, bit ) (field) |= ( 1 << bit )

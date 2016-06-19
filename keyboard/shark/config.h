@@ -14,10 +14,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 #ifndef CONFIG_H
 #define CONFIG_H
-
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
@@ -27,27 +25,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT         Shark
 #define DESCRIPTION     Split Hand ARc Keyboard
 
-/* key matrix size */
+/* key matrix size
+ if COL > 16, be sure to check for 1<< code and change them to 1UL<<
+*/
 #define MATRIX_ROWS 6
 #define MATRIX_COLS 16
-
-/* define if matrix has ghost */
-//#define MATRIX_HAS_GHOST
-
-/* Set 0 if debouncing isn't needed */
-//#define DEBOUNCE    5
-
-/* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-//define LOCKING_SUPPORT_ENABLE
-/* Locking resynchronize hack */
-//#define LOCKING_RESYNC_ENABLE
 
 /* key combination for command */
 #define IS_COMMAND() ( \
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
-
-
 
 /*
  * Feature disable options
